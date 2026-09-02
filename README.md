@@ -27,7 +27,7 @@ Running this pipeline at scale surfaced a genuine, non-obvious result: there's a
 
 ## Results
 
-<img width="200" height="200" alt="true_vs_recovered_m1" src="https://github.com/user-attachments/assets/0bcd0a8d-bfae-4631-9330-e69f7806bd55" />
+<img width="400" height="400" alt="true_vs_recovered_m1" src="https://github.com/user-attachments/assets/0bcd0a8d-bfae-4631-9330-e69f7806bd55" />
 
 ## Contact
 
