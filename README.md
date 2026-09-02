@@ -25,20 +25,6 @@ Running this pipeline at scale surfaced a genuine, non-obvious result: there's a
 - **Bayesian inference / nested sampling** (`dynesty`, `bilby`,`GWFish`)
 - **Statistical validation** — calibration (PP) plots, credible-interval coverage tracking
 
-## Project structure
-
-```
-├── generate.py           # Merger population / synthetic data generation
-├── simulate.py           # Gravitational wave signal simulation
-├── infer.py              # Bayesian nested-sampling reconstruction
-├── validate.py           # Accuracy analysis & calibration plots
-├── notebooks/
-│   └── end_to_end_demo.ipynb   # Full pipeline walkthrough on a small example
-├── results/
-│   └── sample plots (PP plot, true-vs-recovered comparison)
-└── requirements.txt
-```
-
 ## Results
 
 *(Sample output plots go here — a true-vs-recovered comparison plot and a PP plot demonstrating calibration accuracy)*
