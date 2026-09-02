@@ -1,4 +1,4 @@
-#Black Hole merger reconstruction pipeline
+# Black Hole merger reconstruction pipeline
 
 ## Why I built it this way
 
