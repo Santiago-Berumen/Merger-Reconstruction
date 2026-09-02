@@ -12,15 +12,15 @@ The core question this pipeline explores: **Given only the noisy signal, how acc
 
 ## Why I built it this way
 
-Every stage of this pipeline involved a real methodological choice, not just an implementation detail:
+Every stage of this pipeline involved a real scientific reasoning:
 
-- **Population generation** uses a custom mass-ratio-dependent pairing function and a tapered power-law mass distribution, rather than uniform or naive sampling, because real astrophysical populations aren't uniform — using unrealistic input distributions would make every downstream result meaningless before the inference step even begins.
-- **Bayesian nested sampling** (rather than a simpler point-estimate fit) is used for reconstruction specifically because the goal isn't just "best guess" — it's a full posterior distribution with proper uncertainty quantification, so I can report *how confident* the recovery is, not just what it recovered.
-- **Validation is a first-class pipeline stage, not an afterthought** — I built a systematic accuracy-tracking layer (calibration/PP plots, true-vs-recovered comparisons) because a reconstruction pipeline that isn't independently validated against known ground truth can't be trusted, even if it "looks right" on individual cases.
+- **Population generation** uses a custom mass-ratio-dependent pairing function and a tapered power-law mass distribution, rather than uniform or naive sampling, because real astrophysical populations aren't uniform; using unrealistic input distributions would make every downstream result meaningless before the inference step even begins.
+- **Bayesian nested sampling** is used for reconstruction specifically because the goal is a full posterior distribution with proper uncertainty quantification, so I can report *how confident* the recovery is, not just what it recovered.
+- **Validation is a first-class pipeline stage** — I built a systematic accuracy-tracking layer (calibration/PP plots, true-vs-recovered comparisons).
 
 ## What I found
 
-Running this pipeline at scale surfaced a genuine, non-obvious result: there's a **tension between mass recovery and spin recovery**, driven by a parameter called `chi_eff` (effective spin). Cases with near-zero effective spin recover mass very accurately but spin poorly; cases with larger spin recover spin better but mass worse. This isn't a bug — it reflects a real, known degeneracy in how these two parameters imprint on the gravitational wave signal. Catching and correctly interpreting this (rather than assuming something was broken) was one of the more useful outcomes of building out the validation layer.
+Running this pipeline at scale surfaced a genuine, non-obvious result: there's a **tension between mass recovery and spin recovery**, driven by a parameter called `chi_eff` (effective spin). Cases with near-zero effective spin recover mass very accurately but spin poorly; cases with larger spin recover spin better but mass worse. This reflects a real, known degeneracy in how these two parameters imprint on the gravitational wave signal. Catching and correctly interpreting this (rather than assuming something was broken) was one of the more useful outcomes of building out the validation layer.
 
 ## Pipeline stages
 
@@ -49,24 +49,10 @@ Running this pipeline at scale surfaced a genuine, non-obvious result: there's a
 └── requirements.txt
 ```
 
-## Getting started
-
-```bash
-git clone <repo-url>
-cd black-hole-merger-reconstruction
-pip install -r requirements.txt
-python generate.py
-python simulate.py
-python infer.py
-python validate.py
-```
-
-Or run the full pipeline interactively: `notebooks/end_to_end_demo.ipynb`
-
 ## Results
 
 *(Sample output plots go here — a true-vs-recovered comparison plot and a PP plot demonstrating calibration accuracy)*
 
 ## Contact
 
-Santiago Berumen — [skb6347@psu.edu](mailto:skb6347@psu.edu)
+Santiago Berumen — [santiagoberumen65@gmail.com]
